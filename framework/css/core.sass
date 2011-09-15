@@ -1,0 +1,60 @@
+/////////// REQUIRED VARS //////////
+
+// FONT FAMILIES
+// font_family1: main body text (defaults to sans)
+// font_family2: quotes and other accents (defaults to serif)
+// font_family3: headers (defaults to sans)
+// font_family4: code and other monospaced type (defaults to mono)
+
+$font_family1: Georgia, serif !default
+$font_family2: unquote("Helvetica Neue"), Arial, sans-serif !default
+$font_family3: unquote("Helvetica Neue"), Arial, sans-serif !default
+$font_family4: Consolas, unquote("Andale Mono"), unquote("Lucida Console"), Monospace !default
+
+
+$base_font_size: 13px !default
+
+$base_line_height: 20px !default
+
+// COLORS
+// color1: main body text
+// color2: link color
+// color3: link hover color
+// color4: headers
+// color5: weaker text
+// color6: stronger text
+// color7: errors
+// color8: subtle rules and such
+// color9: extremely subtle screens and rules
+$base_color: #000 !default
+$color1: lighten($base_color, 20%) !default
+$color2: #ff6600 !default
+$color3: #ff3300 !default
+$color4: lighten($base_color, 40%) !default
+$color5: lighten($base_color, 60%) !default
+$color6: $base_color !default
+$color7: #cc0000 !default
+$color8: lighten($base_color, 90%) !default
+$color9: lighten($base_color, 95%) !default
+
+// TRANSITIONS
+$transition_duration: .2s !default
+$transition_timing_function: ease-in-out !default
+$transition_delay: false !default
+
+
+/////////// GENERATED VARS //////////
+$base_font_size_unitless: $base_font_size/1px
+
+
+/////////// IMPORTS //////////
+
+@import _css3.sass
+@import reset.sass
+@import misc.sass
+@import typography.sass
+@import forms.sass
+@import effects.sass
+@import buttons.sass
+@import messages.sass
+@import grid.sass

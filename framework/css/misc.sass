@@ -1,0 +1,27 @@
+=clearfix
+  *display: inline-block
+  &:after
+    content: "."
+    display: block
+    height: 0
+    clear: both
+    visibility: hidden
+
+.clearfix:after
+  +clearfix
+
+=clear
+  clear: both
+
+.clear
+  +clear
+  
+=replace-text($img_path, $img_width, $img_height, $x: 50%, $y: 50%)
+  text-indent: -9999em
+  height: $img_height
+  width: $img_width
+  overflow: hidden
+  background:
+    image: url('#{$img_path}')
+    position: $x $y
+    repeat: no-repeat

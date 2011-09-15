@@ -1,0 +1,266 @@
+form
+  margin: 0
+  margin-bottom: $base_line_height
+
+form fieldset
+  padding-bottom: $base_line_height
+  margin-bottom: 0
+
+form fieldset.last
+  padding-bottom: 0
+
+form ol, form ul
+  list-style-type: none
+  margin: 0
+
+form legend
+  font-family: $font_family2
+  border: 0
+  border-top: 1px solid
+  border-color: $color8
+  clear: both
+  color: $color5
+  font-size: $base_font_size * 0.75
+  font-weight: bold
+  line-height: $base_line_height / 4 * 3
+  margin: 0
+  padding: 0
+  padding-top: $base_line_height / 4 - 1px
+  padding-bottom: 15px
+  text-transform: uppercase
+  width: 100%
+
+form li
+  overflow: hidden
+  margin: 0
+  margin-bottom: $base_line_height / 4 * 3
+  padding: 0
+
+label
+  display: block
+  font-weight: bold
+  font-family: $font_family2
+  font-size: $base_font_size * 0.85
+  line-height: $base_line_height * 1.5
+  cursor: pointer
+
+label.errors
+  color: $color7
+
+form label abbr, form table th abbr
+  font-size: $base_font_size * 1.6
+  font-style: normal
+  font-weight: normal
+  vertical-align: bottom
+  border-bottom: none
+
+input[type="text"], input[type="password"], select
+  width: 33%
+
+textarea
+  width: 66%
+  height: $base_line_height * 4
+  +transition('border-color')
+
+input[type="text"], input[type="password"], input[type="file"], textarea, select
+  background-color: white
+  background-image: url("../framework/img/input_background.png")
+  background-repeat: repeat-x
+  border-top: 1px solid #bbbbbb
+  border-right: 1px solid #dddddd
+  border-bottom: 1px solid #dddddd
+  border-left: 1px solid #bbbbbb
+  margin: 0
+  padding: $base_line_height / 4 - 1px
+  line-height: $base_line_height
+  font-size: $base_font_size
+  font-family: $font_family1
+  +transition('border-color')
+
+select
+  background-image: none
+  height: $base_line_height * 1.5
+  position: relative
+  top: -.3em
+  +transition('border-color')
+
+input[disabled]
+  cursor: not-allowed
+
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus, select:focus
+  border-color: $color2
+
+// input[type="file"]
+//   border-color: transparent
+//   background-image: none
+
+form .help_text
+  color: $color5
+  display: block
+  font-family: $font_family1
+  margin-top: $base_line_height / 3
+  line-height: $base_line_height * 0.75
+  font-size: $base_font_size * 0.85
+
+ul.errorlist
+  color: $color7
+
+form ul.errorlist
+  margin: 0
+
+form ul.errorlist li
+  margin: 0
+
+.checkboxes,
+.radios
+  margin-bottom: 0
+
+.checkboxes input[type=checkbox],
+.checkbox input[type=checkbox],
+.radios input[type=radio]
+  float: left
+  background: none
+  margin-top: $base_line_height / 6.66
+  margin-right: $base_line_height / 4
+  margin-left: $base_line_height / 6.66
+  margin-bottom: 0
+  border: 0
+
+input
+  &[type="radio"]
+    vertical-align: text-bottom
+  &[type="checkbox"]
+    vertical-align: bottom
+    *vertical-align: baseline
+
+.wide li
+  clear: both
+  line-height: $base_line_height * 1.5
+  overflow: hidden
+
+.wide label
+  float: left
+  margin-right: 1%
+  text-align: right
+  width: 32%
+
+.wide input[type="text"], .wide input[type="password"], .wide input[type="file"], .wide textarea
+  width: 32%
+  margin: 0 1% 0 0
+  float: left
+
+.wide textarea
+  width: 49.5%
+  margin-right: 0
+
+.wide input[type=text], .wide input[type="password"], .wide input[type="file"]
+  line-height: $base_line_height
+
+.wide input[type="checkbox"]
+  float: left
+  width: 3%
+  margin-top: $base_line_height / 2
+
+.wide select
+  margin-top: $base_line_height / 4
+  margin-right: 1%
+  width: 33.25%
+  float: left
+
+.wide .multiple_fields input, .multiple_fields select
+  float: left
+  margin-right: 0
+  width: auto
+
+.wide .help_text
+  float: left
+  width: 31%
+
+.wide .textarea .help_text
+  width: 49.5%
+  padding-left: 33%
+  margin-bottom: $base_line_height
+  margin-top: -$base_line_height / 4
+
+.wide p
+  margin-left: 33%
+  margin-right: 16.5%
+
+.wide .buttons
+  border-top: 1px solid
+  border-color: $color8
+  padding-left: 33%
+  padding-top: $base_line_height - 1px
+
+.wide ul.errorlist
+  padding-left: 33%
+
+.wide .checkboxes ul,
+.wide .checkbox,
+.wide .radios ul
+  clear: none
+  float: left
+  overflow: hidden
+  padding-left: 33%
+  width: 33%
+
+.wide .checkboxes li,
+.wide .radios li
+  clear: none
+  float: left
+  width: 33%
+
+.wide .checkboxes label,
+.wide .checkbox label,
+.wide .radios label
+  text-align: left
+  width: auto
+
+.wide .checkboxes input[type=checkbox],
+.wide .checkbox input[type=checkbox],
+.wide .radios input[type=radio]
+  float: left
+  width: auto
+  margin-top: $base_line_height / 2.5
+  margin-right: $base_line_height / 4
+  margin-left: 0
+  margin-bottom: 0
+  padding: 0
+  font: normal
+
+.wide .checkbox .help_text
+  float: none
+  width: auto
+
+table.formset
+  margin: 0
+
+table.formset input, textarea
+  float: none !important
+
+table.formset input[type="text"], table.formset input[type="password"], table.formset input[type="file"], table.formset textarea
+  width: auto
+
+table.formset td, table.formset th
+  padding-top: $base_line_height / 4
+  padding-bottom: $base_line_height / 4
+  line-height: $base_line_height * 1.5
+
+table.formset tfoot p
+  color: $color4
+  font-family: $font_family2
+  font-size: $base_font_size * 0.85
+  text-transform: none
+  font-style: italic
+  margin: 0
+  text-align: left
+  font-weight: normal
+
+.wide table.formset
+  margin-left: 33%
+
+.wide table.formset
+  width: 49.5%
+  
+table td form label
+  display: none

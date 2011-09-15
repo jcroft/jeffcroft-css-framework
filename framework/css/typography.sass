@@ -1,0 +1,187 @@
+// DEFAULTS
+
+body
+  font-size: $base_font_size
+  line-height: $base_line_height
+  color: $color1
+  background: white
+  font-family: $font_family1
+  font-weight: normal
+
+// HEADERS
+
+h1, h2, h3, h4, h5, h6
+  font-weight: normal
+  color: $color4
+  margin: 0
+  padding: 0
+  font-family: $font_family3
+  font-weight: 300
+  line-height: $base_line_height
+
+h1
+  font-size: $base_font_size * 2.3
+  line-height: $base_line_height * 2
+  margin-top: $base_line_height
+  margin-bottom: $base_line_height
+
+h2
+  font-size: $base_font_size * 2
+  line-height: $base_line_height * 1.5
+  padding-top: $base_line_height * 0.5
+  padding-bottom: $base_line_height * 0.5
+
+h3
+  font-size: $base_font_size * 1.38
+  padding-top: $base_line_height * 0.25
+  padding-bottom: $base_line_height * 0.25
+
+h4
+  font-size: $base_font_size * 1.23
+  padding-top: $base_line_height * 0.25
+  padding-bottom: $base_line_height * 0.25
+
+h5
+  font-size: $base_font_size
+  font-weight: bold
+  font-family: $font_family1
+
+h6
+  font-size: $base_font_size * 0.85
+  font-weight: bold
+  text-transform: uppercase
+  font-family: $font_family1
+
+// MISC
+
+p
+  margin-bottom: $base_line_height
+
+a:focus, a:hover
+  color: $color3
+
+a
+  color: $color2
+  font-weight: bold
+  text-decoration: none
+  +transition(all)
+
+blockquote
+  font-family: $font_family2
+  margin-top: $base_line_height
+  margin-bottom: $base_line_height
+  color: $color5
+  font-style: italic
+
+strong
+  font-weight: bold
+
+em, dfn
+  font-style: italic
+
+dfn
+  font-weight: bold
+
+sup, sub
+  line-height: 0
+
+abbr, acronym
+  border-bottom: 1px dotted #666666
+
+address
+  margin-bottom: $base_line_height
+  font-style: italic
+
+del
+  color: $color5
+
+pre, code
+  margin-top: $base_line_height
+  margin-bottom: $base_line_height
+  white-space: pre
+
+pre, code, tt
+  font-family: $font_family4
+
+// LISTS
+
+li ul, li ol
+  margin-top: $base_line_height
+  margin-bottom: $base_line_height
+
+ul, ol
+  margin-bottom: $base_line_height
+
+ul
+  list-style-type: disc
+
+ol
+  list-style-type: decimal
+
+dl
+  margin-bottom: $base_line_height
+
+dl dt
+  font-weight: bold
+
+dd
+  margin-left: $base_line_height
+
+// TABLES
+
+table
+  margin-bottom: $base_line_height
+  width: 100%
+
+th, td
+  padding-top: $base_line_height * 0.5
+  padding-right: $base_line_height * 0.5
+  padding-bottom: $base_line_height * 0.5 - 1px
+  padding-left: $base_line_height * 0.5
+  border-bottom: 1px solid
+  border-color: $color8
+  vertical-align: top
+  line-height: $base_font_size * 1.5
+
+th
+  font-weight: bold
+  text-align: left
+  font-family: $font_family2
+  font-size: $base_font_size * 0.85
+  background-color: $color8
+  padding-top: $base_line_height * 0.25
+  padding-bottom: $base_line_height * .25 - 1px
+
+tr.even td,
+tr.even th
+  background-color: $color9
+
+th.numeric, td.numeric
+  text-align: right
+
+th.center, td.center
+  text-align: center
+
+table tfoot
+  background-color: $color9
+
+// MISC CLASSES
+
+.weak
+  color: $color5
+
+.highlight
+  background: #fefed7
+
+.dquo
+  margin-left: -0.5em
+
+.small
+  font-size: $base_font_size * 0.85
+  line-height: $base_font_size * 1.23
+
+.caps
+  font-variant: small-caps
+  text-transform: lowercase
+  font-size: $base_font_size * 1.4
+  line-height: 1%

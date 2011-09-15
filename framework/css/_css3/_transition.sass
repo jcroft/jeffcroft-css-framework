@@ -1,0 +1,57 @@
+// CSS Transitions
+// Currently only works in Webkit
+//  - expected in CSS3, FireFox 3.6/7 and Opera Presto 2.3
+//  - we'll be prepared.
+
+// Override these defaults with your own, if you like
+//  - timing-function and delay are set to false for browser defaults (ease, 0s)
+$transition_property: all !default
+$transition_duration: 1s !default
+$transition_timing_function: false !default
+$transition_delay: false !default
+
+// One or more properties to transition
+//  - for multiple, use a comma-delimited list
+//  - also accepts "all" or "none"
+=transition-property($properties: $transition_property)
+  transition-property: $properties
+  -webkit-transition-property: $properties
+  -moz-transition-property: $properties
+  -o-transition-property: $properties
+
+// One or more durrations in seconds
+//  - for multiple, use a comma-delimited list
+//    - these durrations will effect the properties in the same list position
+=transition-duration($duration: $transition_duration)
+  transition-duration: $duration
+  -webkit-transition-duration: $duration
+  -moz-transition-duration: $duration
+  -o-transition-duration: $duration
+
+// One or more timing functions
+//  - [ ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(x1, y1, x2, y2)]
+//  - for multiple, use a comma-delimited list
+//    - these functions will effect the properties in the same list position
+=transition-timing-function($function: $transition_timing_function)
+  transition-timing-function: $function
+  -webkit-transition-timing-function: $function
+  -moz-transition-timing-function: $function
+  -o-transition-timing-function: $function
+
+// One or more transition-delays in seconds
+//  - for multiple, use a comma-delimited list
+//    - these delays will effect the properties in the same list position
+=transition-delay($delay: $transition_delay)
+  transition-delay: $delay
+  -webkit-transition-delay: $delay
+  -moz-transition-delay: $delay
+  -o-transition-delay: $delay
+
+// Transition all-in-one shorthand
+=transition($properties: $transition_property, $duration: $transition_duration, $function: $transition_timing_function, $delay: $transition_delay)
+  +transition-property($properties)
+  +transition-duration($duration)
+  @if $function
+    +transition-timing-function($function)
+  @if $delay
+    +transition-delay($delay)

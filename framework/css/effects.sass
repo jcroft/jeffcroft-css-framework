@@ -1,0 +1,13 @@
+=glassy
+  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, rgba(255,255,255,0.2)),color-stop(0.4, rgba(255,255,255,0.2)),color-stop(0.5, rgba(255,255,255,0.0)))
+  background-image: -moz-linear-gradient(top,rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.2) 40%,rgba(255,255,255,0.0) 50%)
+  // filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff33', EndColorStr='#ffffff00')
+  // -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff33', EndColorStr='#ffffff00}')"
+  
+@mixin bevel($color: #fff,$weight: 2)
+  @if darken($color,50%) == #000000
+    $bevel_color: rgba(255,255,255,0.3 * $weight)
+    +text-shadow($bevel_color, 0, 1px, 1px)
+  @else
+    $bevel_color: rgba(0,0,0,0.2 * $weight)
+    +text-shadow($bevel_color, 0, -1px, 1px)

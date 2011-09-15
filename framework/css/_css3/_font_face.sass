@@ -1,0 +1,8 @@
+// @Font-Face
+// Cross-browser support for @font-face
+
+=font-face($family, $filename, $path: unquote("/static/assets/font/"))
+  font-family: #{$family}
+  $prefix: $path + $filename + unquote("/") + $filename
+  src: url(#{$prefix}.eot)
+  src: local("☺"), url(#{$prefix}.woff) format("woff"), url(#{$prefix}.ttf) format("truetype"), url(#{$prefix}.svg) format("svg")

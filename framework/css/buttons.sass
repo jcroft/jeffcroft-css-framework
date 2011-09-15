@@ -1,0 +1,142 @@
+$default_button_color: $color4 !default
+$default_button_background_color: #ffffff !default
+$positive_button_color: #529214 !default
+$negative_button_color: #cc0000 !default
+
+.buttons
+  overflow: hidden
+  margin-bottom: $base_line_height * 2
+
+.buttons button,
+.buttons .button,
+a.button
+  box-sizing: content-box
+  -moz-box-sizing: content-box
+  -webkit-box-sizing: content-box
+  height: $base_line_height
+  line-height: $base_line_height
+  padding-top: $base_line_height / 4
+  padding-bottom: $base_line_height / 4
+  padding-left: $base_line_height
+  padding-right: $base_line_height
+  background-color: $default_button_background_color
+  background-image: url("../framework/img/button_background.png")
+  background-position: bottom center
+  background-repeat: repeat-x
+  border: 1px solid #b4b4b4
+  border-top: 1px solid #d4d4d4
+  border-left: 1px solid #d4d4d4
+  +border-radius(3px)
+  color: $default_button_color
+  cursor: pointer
+  display: block
+  float: left
+  font-weight: bold
+  margin: 0
+  margin-bottom: $base_line_height
+  margin-right: $base_line_height / 2
+  text-decoration: none
+  +text-shadow(rgba(255, 255, 255, 0.75), 1px, 1px, 0)
+  text-transform: uppercase
+  font-family: $font_family2
+  font-size: $base_font_size * 0.75
+  text-align: center
+  +transition('background-color, border-color, color')
+  white-space: nowrap
+
+.buttons.right button,
+.buttons.right .button
+  float: right
+  margin-right: 0
+  margin-left: $base_line_height / 2
+
+button::-moz-focus-inner
+  border-color: transparent
+
+.buttons img
+  margin: -2px 0 0 5px
+  vertical-align: text-top
+  width: 16px
+  height: 16px
+
+.buttons .subtle,
+a.button.subtle
+  background: none
+  border-color: #eeeeee
+  color: $color5
+
+.buttons button:hover,
+.buttons .button:hover,
+a.button:hover
+  +transition-duration(0)
+
+.buttons .subtle:hover,
+a.button.positive:hover
+  background-color: #f2f2f2
+  background-image: url("../framework/img/button_background.png")
+  background-position: bottom center
+  background-repeat: repeat-x
+  border-color: #b4b4b4
+
+.buttons button:hover,
+.buttons .button:hover,
+a.button:hover
+  background-color: #f2f2f2
+  border-color: #b4b4b4
+
+.buttons button:active,
+.buttons .button:active,
+a.button:active
+  background-color: $color2
+  border-color: $color3
+  color: white
+  +text-shadow(rgba(0, 0, 0, 0.4), 0, -1px, 0)
+
+.buttons .positive,
+a.button.positive
+  color: $positive_button_color
+
+.buttons .positive:active,
+a.button.positive:active
+  background-color: #529214
+  border-color: #467c11
+
+.buttons .negative,
+a.button.negative
+  color: $negative_button_color
+
+.buttons .negative:active,
+a.button.negative:active
+  background-color: #d12f19
+  border-color: #b22815
+
+.buttons .passive,
+a.button.passive
+  background: none
+  border-color: transparent
+  color: $color5
+  text-transform: none
+
+.buttons .passive:hover,
+a.button.passive:hover
+  background: none
+  border-color: #d4d4d4
+  color: $default_button_color
+
+.buttons .passive:active,
+a.button.passive:active
+  background: #b4b4b4
+  border-color: #b4b4b4
+  color: white
+
+.buttons button[disabled],
+.buttons .disabled,
+.buttons .disabled:hover,
+.buttons .disabled:active
+a.button.disabled,
+a.button.disabled:hover,
+a.button.disabled:active
+  background: #d4d4d4
+  border-color: #c6c6c6
+  color: #828282
+  cursor: not-allowed !important

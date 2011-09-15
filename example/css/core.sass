@@ -1,0 +1,38 @@
+$grid_type: fluid
+
+
+///// FRAMEWORK IMPORT /////
+@import ../../framework/css/core.sass
+
+
+
+
+#header
+
+#content
+  +column(16)
+  
+  .boxes
+    +column(16, 16)
+  
+  .boxes li
+    list-style-type: none
+    +column(8, 16)
+  
+  .boxes li:last-child
+    +last
+    
+#sidebar
+  +column(8)
+  +last
+  
+  .boxes
+    +column(8, 8)
+  
+  .boxes li
+    list-style-type: none
+    +column(4, 8)
+  
+  .boxes li:last-child
+    +last
+  

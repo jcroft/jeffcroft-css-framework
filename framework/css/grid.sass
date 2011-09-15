@@ -1,0 +1,156 @@
+// REQUIRED VARS. Defaults to a 950px wide, 24-column grid that has 30px wide units and 10px wide
+// gutters. If you do the fluid grid, then this 950/24/30/10px size will become the maximum size.
+$grid_type: fixed !default
+$grid_columns: 24 !default
+$grid_column_width: 30 !default
+$grid_gutter_width: 10 !default
+
+// GENERATED VARS. You can ignore these.
+$grid_full_width: $grid_columns * $grid_column_width + $grid_columns * $grid_gutter_width - $grid_gutter_width
+$grid_column_width_percent: ($grid_column_width / $grid_full_width * 100) * 1%
+$grid_gutter_width_percent: ($grid_gutter_width / $grid_full_width * 100) * 1%
+
+// CONTAINER MIXIN. A container is an element that holds grid based elements. All grid layouts should
+// be wrapped with a container. In fixed grids, the width of containers is the totally of your columns and
+// gutters. In fluid grids, that's the max-width. You can stack containers vertically down the page all
+// you like. For example, you may have a container for your header, one for content, and one for your
+// footer. To specify a container, either use this mixin in your SASS (+container) or apply the CSS
+// class "container" via HTML (class=container).
+=container($type: none, $box_padding_multiplier: 1)
+  +clearfix
+  @if $grid_type == "fixed"
+    width: #{($grid_column_width + $grid_gutter_width) * $grid_columns - $grid_gutter_width}px
+    @if $type == "box"
+      padding-left: #{$grid_gutter_width * $box_padding_multiplier}px
+      padding-right: #{$grid_gutter_width * $box_padding_multiplier}px
+  @if $grid_type == "fluid"
+    max-width: #{$grid_full_width / $base_font_size_unitless}em
+    padding: 0 #{$box_padding_multiplier}em
+  margin: 0 auto
+
+=span($n, $x: $grid_columns)
+  @if $grid_type == "fluid"
+    
+    // This stuff recalculates things for nested columns in fluid grids.
+    $grid_full_width: $x * $grid_column_width + $x * $grid_gutter_width - $grid_gutter_width
+    $grid_column_width_percent: ($grid_column_width / $grid_full_width * 100) * 1%
+    $grid_gutter_width_percent: ($grid_gutter_width / $grid_full_width * 100) * 1%
+    
+    $span_width_percent: ($grid_column_width_percent * $n + ($grid_gutter_width_percent * ($n - 1)))
+    width: #{$span_width_percent}
+  @else
+    width: #{$grid_column_width * $n + $grid_gutter_width * ($n - 1)}px
+  @if $n == $grid_columns
+    margin: 0
+
+// COLUMN MIXIN. Column CSS classes are also generated. You can make an element span a specific
+// number of columns either by using this mixin in your SASS for that element (such as +column(4)),
+// or by speficing the CSS class in your HTML (such as class=column-4). For nested columns in a fluid
+// grid, you must also specify the number of columns the parent spans (i.e. +column(4, 16)). This is 
+// kinda ghetto and I wish I had a better solution, but it works.
+=column($n, $x: $grid_columns)
+  +span($n, $x)
+  float: left
+  @if $grid_type == "fluid"
+    margin-right: #{$grid_gutter_width_percent}
+  @else
+    margin-right: #{$grid_gutter_width}px
+  @if $n == $grid_columns
+    margin: 0
+
+// BOX MIXIN. A "box" is a column that has inner padding the width of the gutters. It's useful when
+// you intend to have a background color or other screen on the element, such that content butting up
+// aganist the interior edges of the element would be undesirable. Use it just like the column mixin
+// (+box(4) or class=box-4).
+
+=box($n)
+  float: left
+  @if $grid_type == "fluid"
+    $box_width_percent: ($grid_column_width_percent * $n + ($grid_gutter_width_percent * ($n - 1)) - ($grid_gutter_width_percent * 2))
+    width: #{$box_width_percent}
+    padding: #{$grid_gutter_width_percent}
+    margin-right: #{$grid_gutter_width_percent}
+  @else
+    width: #{$grid_column_width * $n + $grid_gutter_width * ($n - 1) - $grid_gutter_width * 2}px
+    padding: #{$grid_gutter_width}px
+    margin-right: #{$grid_gutter_width}px
+  @if $n == $grid_columns
+    margin: 0
+
+// APPEND AND PREPEND MIXINS
+// These mixins append or prepend the specificed number of blank columns to an element, using padding.
+// Note that because they use padding, they are not compatible with boxes. I need to make a margin-based
+// version for boxes, but haven't gotten there, yet. Use them as with the other mixins (+append(2) or
+// class=prepend-2).
+=append($n)
+  @if $grid_type == "fluid"
+    padding-right: #{$grid_column_width_percent * $n + $grid_gutter_width_percent * $n} !important
+  @else
+    padding-right: #{$grid_column_width * $n + $grid_gutter_width * $n}px !important
+
+=prepend($n)
+  @if $grid_type == "fluid"
+    padding-left: #{$grid_column_width_percent * $n + $grid_gutter_width_percent * $n} !important
+  @else
+    padding-left: #{$grid_column_width * $n + $grid_gutter_width * $n}px !important
+
+// PUSH AND PULL MIXINS
+// These mixins push or pull an element out of the flow by the specified number of columns. Use as with
+// the other mixins (+push(4) or class=pull-4).
+=pull($n)
+  float: left
+  margin-bottom: $base_line_height
+  // @if $grid_type == "fluid"
+  //   margin-left: -#{$grid_column_width_percent * $n + $grid_gutter_width_percent * $n}% !important
+  // @else
+  margin-left: -#{$grid_column_width * $n + $grid_gutter_width * $n}px !important
+
+=push($n)
+  float: right
+  margin-bottom: $base_line_height
+  // @if $grid_type == "fluid"
+  //   margin-right: -#{$grid_column_width_percent * $n + $grid_gutter_width_percent * $n}% !important
+  // @else
+  margin-right: -#{$grid_column_width * $n + $grid_gutter_width * $n}px !important
+
+// OTHER MIXINS
+=last
+  margin-right: 0 !important
+
+// Generate the CSS classes.
+@for $n from 1 to $grid_columns + 1
+  .span-#{$n}
+    +span($n)
+
+@for $n from 1 to $grid_columns + 1
+  .column-#{$n}
+    +column($n)
+
+@for $n from 1 to $grid_columns + 1
+  .box-#{$n}
+    +box($n)
+
+@for $n from 1 to $grid_columns
+  .append-#{$n}
+    +append($n)
+
+@for $n from 1 to $grid_columns
+  .prepend-#{$n}
+    +prepend($n)
+
+@for $n from 1 to $grid_columns / 2 + 1
+  .pull-#{$n}
+    +pull($n)
+
+@for $n from 1 to $grid_columns / 2 + 1
+  .push-#{$n}
+    +push($n)
+
+.container
+  +container
+
+.container-box
+  +container(true)
+
+.last
+  +last
