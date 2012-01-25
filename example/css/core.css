@@ -1385,7 +1385,8 @@ a.button.disabled:active {
 #content {
   width: 66.316%;
   float: left;
-  margin-right: 1.053%; }
+  margin-right: 1.053%;
+  background-color: #f5f5f5; }
   #content .boxes {
     width: 100%;
     float: left;
@@ -1402,7 +1403,8 @@ a.button.disabled:active {
   width: 32.632%;
   float: left;
   margin-right: 1.053%;
-  margin-right: 0 !important; }
+  margin-right: 0 !important;
+  background-color: #cccccc; }
   #sidebar .boxes {
     width: 100%;
     float: left;
